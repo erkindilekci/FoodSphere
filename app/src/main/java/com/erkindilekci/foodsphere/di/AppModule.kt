@@ -1,5 +1,6 @@
 package com.erkindilekci.foodsphere.di
 
+import com.erkindilekci.foodsphere.BuildConfig
 import com.erkindilekci.foodsphere.data.RecipesApiService
 import com.erkindilekci.foodsphere.data.RecipesRepositoryImpl
 import com.erkindilekci.foodsphere.domain.RecipesRepository
@@ -24,7 +25,7 @@ object AppModule {
         OkHttpClient.Builder()
             .addInterceptor {
                 val request = it.request().newBuilder()
-                    .header("X-RapidAPI-Key", "d256ce8a44mshd38aabe8b4270f2p147ee4jsn2af970cbf203")
+                    .header("X-RapidAPI-Key", BuildConfig.API_KEY)
                     .header("X-RapidAPI-Host", "tasty.p.rapidapi.com")
                     .build()
                 it.proceed(request)
